@@ -33,6 +33,16 @@ export default {
 
           return this.replaceWith(transition.intent.name, { queryParams: { period }});
         },
+        
+        if (siteSettings.locations_hamburger_menu_map_link) {
+        api.decorateWidget('hamburger-menu:generalLinks', helper => {
+          return {
+            route: 'discovery.map',
+            className: 'map-link',
+            label: 'filters.map.title'
+          }
+        })
+      }
 
         renderTemplate() {
           this.render('users');
